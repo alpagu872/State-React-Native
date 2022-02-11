@@ -1,28 +1,43 @@
 
 
-import React from 'react';
+import React, {useState} from 'react';
 
 import {
   SafeAreaView,
-  ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
-  useColorScheme,
   View,
+  Button
 } from 'react-native';
 
 function App() {
+
+
+  const [counter, setCounter] = useState(0);
+
+  function updateCounter(){
+    setCounter(counter+1);
+  }
+  function downCounter(){
+    setCounter(counter-1);
+  }
+
+
+
+
   return(
     <SafeAreaView>
-      <Text>Hİ</Text>
+      <Text style = {{fontSize:40}}>Counter: {counter}</Text>
+      <Button title= "Update Counter" onPress={updateCounter}/>
+      <Button title= "Down Counter" onPress={downCounter}/>
+
     </SafeAreaView>
   )
 }
 
 
 const styles = StyleSheet.create({
- 
+
 });
 
 export default App;
